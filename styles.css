@@ -134,6 +134,22 @@ a {
   background: transparent;
   color: var(--ink);
 }
+/* Pre-launch: the download CTA until the first release is published */
+.btn.soon {
+  opacity: 0.6;
+  cursor: default;
+}
+.btn.soon:hover,
+.btn.soon:active {
+  transform: none;
+  box-shadow: 4px 4px 0 var(--shadow);
+}
+.soon-tag {
+  font-family: var(--pixel);
+  font-size: 11px;
+  color: var(--muted, #888);
+  align-self: center;
+}
 .btn:focus-visible,
 a:focus-visible,
 summary:focus-visible {
