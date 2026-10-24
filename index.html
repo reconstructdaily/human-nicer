@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Human-nicer — catch the AI tells before you hit send</title>
+    <meta
+      name="description"
+      content="A free Windows tray app that checks what you copy for AI tells — leftover placeholders, chatbot sign-offs, buzzword clusters — and rewrites it to sound like you. Your clipboard stays on your PC."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Human-nicer — catch the AI tells before you hit send" />
+    <meta
+      property="og:description"
+      content="Copy any text and see instantly if it sounds AI-written. Humanize it in your tone. Private by design."
+    />
+    <meta property="og:image" content="https://humannicer.com/icon-256.png" />
+    <meta property="og:url" content="https://humannicer.com/" />
+    <link rel="canonical" href="https://humannicer.com/" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" type="image/png" href="icon-256.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="wrap top">
+      <a class="brand" href="./"><img src="icon-256.png" alt="" />Human-nicer</a>
+      <nav aria-label="Main">
+        <a href="#how">How it works</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://github.com/reconstructdaily/human-nicer/releases/latest" data-download>Download</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="wrap hero">
+        <div>
+          <p class="eyebrow">FREE · WINDOWS 10 &amp; 11</p>
+          <h1>Catch the <mark>AI tells</mark> before you hit send.</h1>
+          <p class="lede">
+            Human-nicer sits in your tray and checks everything you copy. It flags the
+            <code>[Enter Name]</code> you forgot, the "I hope this helps!" you didn't write, and
+            rewrites the rest so it sounds like you.
+          </p>
+          <div class="ctas">
+            <a class="btn" href="https://github.com/reconstructdaily/human-nicer/releases/latest" data-download
+              >Download for Windows</a
+            >
+            <a class="btn ghost" href="#how">See how it works</a>
+          </div>
+          <p class="fine">Free. Scoring works offline. No account needed until you rewrite.</p>
+        </div>
+
+        <figure class="demo" aria-label="What Human-nicer shows when you copy AI-written text">
+          <div class="bubble">
+            <div class="score">
+              <b>88</b>
+              <div style="flex: 1">
+                <span>SOUNDS AI-GENERATED</span>
+                <div class="meter"><i></i></div>
+              </div>
+            </div>
+            <div class="label">WHAT I NOTICED</div>
+            <div class="warn">
+              <strong>Unfilled placeholder</strong>
+              <span class="chip">[Enter Name]</span>
+            </div>
+            <div class="warn">
+              <strong>Leftover AI phrasing</strong>
+              <span class="chip">Let me know if you need any more details!</span>
+            </div>
+            <div class="private">🔒 STAYS ON THIS DEVICE <em>email</em> <em>phone</em></div>
+            <button class="humanize" type="button" tabindex="-1">HUMANIZE · Friendly ✨</button>
+          </div>
+          <div class="mascot"><img src="mascot-shocked.svg" alt="" /></div>
+        </figure>
+      </div>
+
+      <section id="catches">
+        <div class="wrap">
+          <h2>What it catches</h2>
+          <p class="sub">
+            Not a vague "AI percentage". Specific things you can fix, the moment you copy them.
+          </p>
+          <div class="grid3">
+            <div class="card">
+              <code>[Enter Name]</code>
+              <h3>Forgotten placeholders</h3>
+              <p>Brackets, curly-brace fields and "insert X here" that would go out unfilled.</p>
+            </div>
+            <div class="card">
+              <code>I hope this helps!</code>
+              <h3>Chatbot leftovers</h3>
+              <p>
+                "Certainly!", "Here's the revised version:", and sign-offs no person types to a
+                colleague.
+              </p>
+            </div>
+            <div class="card">
+              <code>leverage · seamless</code>
+              <h3>AI-flavored style</h3>
+              <p>
+                Buzzwords, stacked transitions, dash and emoji overuse — flagged only when several
+                show up together, so normal writing isn't punished.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how">
+        <div class="wrap">
+          <h2>How it works</h2>
+          <p class="sub">Nothing to open, nothing to paste into. It works wherever you copy.</p>
+          <div class="grid3">
+            <div class="card">
+              <span class="step">1</span>
+              <h3>Copy anything</h3>
+              <p>
+                An email draft, a LinkedIn post, a Slack reply. Code, spreadsheets and logs are
+                recognised and left alone.
+              </p>
+            </div>
+            <div class="card">
+              <span class="step">2</span>
+              <h3>Get an instant check</h3>
+              <p>
+                A 0–100 score and the exact phrases behind it, worked out on your PC in
+                milliseconds. The mascot only speaks up when something's off.
+              </p>
+            </div>
+            <div class="card">
+              <span class="step">3</span>
+              <h3>Humanize in your tone</h3>
+              <p>One click rewrites it. Placeholders stay put so you can fill them in.</p>
+              <p class="tones">professional · casual · friendly · concise · confident · formal</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="privacy">
+        <div class="wrap">
+          <h2>Your clipboard stays yours</h2>
+          <p class="sub">
+            A tool that reads your clipboard has to earn trust. These aren't settings — they're
+            how the app is built, and they're checked by automated tests on every change.
+          </p>
+          <div class="promise">
+            <span class="n">01</span>
+            <div>
+              <h3>Copying never sends your text</h3>
+              <p>
+                The score is plain code running on your PC with no network access. Your clipboard
+                is never uploaded, logged, or saved to disk.
+              </p>
+            </div>
+          </div>
+          <div class="promise">
+            <span class="n">02</span>
+            <div>
+              <h3>Secrets are removed before Humanize</h3>
+              <p>
+                Passwords, API keys, emails, phone numbers, card and ID numbers are swapped out on
+                your PC before text is sent, then put back into the rewrite locally. The bubble
+                shows you what was held back.
+              </p>
+            </div>
+          </div>
+          <div class="promise">
+            <span class="n">03</span>
+            <div>
+              <h3>Local-only mode turns sending off</h3>
+              <p>
+                One switch in Settings and Humanize refuses to run and anonymous usage counts stop,
+                so nothing about your text can leave your device by any path. Read the full
+                <a href="privacy.html">privacy policy</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="wrap">
+          <h2>Questions</h2>
+          <details>
+            <summary>Is it free?</summary>
+            <p>
+              Yes. The check on every copy is free and unlimited. Humanize needs a free account
+              (sign in with Google) and includes 10 rewrites a day.
+            </p>
+          </details>
+          <details>
+            <summary>Is this an AI detector?</summary>
+            <p>
+              It's a writing check for your own text. The score is a quick estimate based on
+              patterns common in AI output — useful for catching things before you send them, not
+              proof of who wrote something. Please don't use it to judge other people's work.
+            </p>
+          </details>
+          <details>
+            <summary>What gets sent when I press Humanize?</summary>
+            <p>
+              The copied text, with secrets and personal details removed, and the tone you picked.
+              It goes to our server and to Google's Gemini model to be rewritten, and isn't stored
+              by us. Details are in the <a href="privacy.html">privacy policy</a>.
+            </p>
+          </details>
+          <details>
+            <summary>Why does Windows show a warning when I install it?</summary>
+            <p>
+              Windows SmartScreen warns about new apps it hasn't seen many downloads of yet. Choose
+              <strong>More info → Run anyway</strong>. The warning fades as more people install it.
+            </p>
+          </details>
+          <details>
+            <summary>Does it work on Mac?</summary>
+            <p>Not yet — Windows 10 and 11 only for now.</p>
+          </details>
+          <details>
+            <summary>How do I pause or remove it?</summary>
+            <p>
+              Right-click the tray icon → <strong>Pause watching</strong>. To uninstall, use
+              Windows Settings → Apps → Installed apps → Human-nicer.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="final">
+        <div class="wrap">
+          <div class="mascot calm" style="position: static; margin: 0 auto 22px">
+            <img src="mascot-happy.svg" alt="" />
+          </div>
+          <h2>Send things that sound like you.</h2>
+          <p class="sub" style="margin-inline: auto">Free for Windows. Takes a minute to set up.</p>
+          <div class="ctas">
+            <a class="btn" href="https://github.com/reconstructdaily/human-nicer/releases/latest" data-download
+              >Download for Windows</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>© 2026 Human-nicer</span>
+        <nav aria-label="Footer">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="https://github.com/reconstructdaily/human-nicer/issues/new/choose"
+            >Report a problem</a
+          >
+          <a href="https://github.com/reconstructdaily/human-nicer/releases">Releases</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="metrics.js"></script>
+  </body>
+</html>

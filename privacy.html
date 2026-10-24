@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy — Human-nicer</title>
+    <meta name="description" content="What Human-nicer collects, what it never collects, and why." />
+    <link rel="icon" type="image/png" href="icon-256.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="wrap top">
+      <a class="brand" href="./"><img src="icon-256.png" alt="" />Human-nicer</a>
+      <nav aria-label="Main"><a href="./">Home</a></nav>
+    </header>
+
+    <main class="wrap legal">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: October 24, 2026</p>
+
+      <div class="summary-box">
+        <p><strong>The short version</strong></p>
+        <ul>
+          <li>Checking what you copy happens on your PC. Copying never sends your text.</li>
+          <li>
+            Text leaves your PC only when you press <strong>Humanize</strong>, with passwords,
+            keys and personal details removed first. We don't store it.
+          </li>
+          <li>
+            If you sign in, we keep your email address and how many rewrites you used each day.
+          </li>
+          <li>
+            The app sends anonymous counts (copies checked, alerts shown, rewrites made) so we can
+            see what's working. Never any text. You can turn this off.
+          </li>
+          <li>No ads, no third-party trackers, no selling data. The website sets no cookies.</li>
+        </ul>
+      </div>
+
+      <h2>Who we are</h2>
+      <p>
+        Human-nicer ("we", "us") makes the Human-nicer desktop app and this website. You can
+        reach us at <a href="mailto:support@humannicer.com">support@humannicer.com</a> for anything in this
+        policy, including requests to access or delete your data.
+      </p>
+
+      <h2>What stays on your computer</h2>
+      <p>
+        <strong>Your clipboard.</strong> The app reads text you copy so it can check it. That
+        check — the score, the warnings, detecting code or data — runs entirely on your computer.
+        Copied text is kept in memory only while needed and is never written to disk, logged, or
+        sent anywhere as a result of copying.
+      </p>
+      <p>
+        <strong>Your settings</strong> (alert threshold, tone, character, startup and Local-only
+        options) are saved in a file on your computer. If you sign in, your sign-in session is
+        saved on your computer, encrypted with Windows' built-in data protection.
+      </p>
+
+      <h2>What we receive, and why</h2>
+      <table>
+        <tr>
+          <th>Data</th>
+          <th>When</th>
+          <th>Why</th>
+          <th>Kept for</th>
+        </tr>
+        <tr>
+          <td>
+            Email address, name and profile picture from your Google account, and an account ID
+          </td>
+          <td>When you sign in</td>
+          <td>To create your account and keep the free allowance per person</td>
+          <td>Until you delete your account</td>
+        </tr>
+        <tr>
+          <td>Number of rewrites used per day, and whether you have Pro</td>
+          <td>Each time you press Humanize</td>
+          <td>To apply the daily allowance</td>
+          <td>Until you delete your account</td>
+        </tr>
+        <tr>
+          <td>The text you chose to rewrite, after redaction, and the tone you picked</td>
+          <td>Only when you press Humanize</td>
+          <td>To produce the rewrite</td>
+          <td>Not stored by us — processed and discarded</td>
+        </tr>
+        <tr>
+          <td>
+            Anonymous usage counts: a random install ID, the app version, the date, and how many
+            copies were checked, alerts shown and rewrites made that day, and whether you're signed
+            in. Never any text, never what was flagged, never your account.
+          </td>
+          <td>At most once an hour while the app runs, if something changed</td>
+          <td>To see whether the app is useful and what to fix</td>
+          <td>Up to 24 months</td>
+        </tr>
+        <tr>
+          <td>
+            Website visits: the page, the site that linked you here, and campaign tags in the link
+            (like <code>utm_source</code>). No cookies, and your IP address isn't stored.
+          </td>
+          <td>When you visit this website or click a download button</td>
+          <td>To see how people find us</td>
+          <td>Up to 24 months</td>
+        </tr>
+        <tr>
+          <td>Your answer to the uninstall question, and any comment you add</td>
+          <td>Only if you answer it after uninstalling</td>
+          <td>To understand why people leave</td>
+          <td>Up to 24 months</td>
+        </tr>
+        <tr>
+          <td>IP address and request times in server logs</td>
+          <td>When the app talks to our server or checks for updates</td>
+          <td>To run, secure and debug the service</td>
+          <td>As set by our providers, typically days to weeks</td>
+        </tr>
+      </table>
+
+      <h2>Redaction before Humanize</h2>
+      <p>
+        Before any text is sent, the app looks for passwords and passphrases, API keys and
+        tokens, private keys, email addresses, phone numbers, payment card numbers, government ID
+        numbers and similar details, and replaces them with placeholders such as
+        <code>[EMAIL_1]</code>. Only the redacted text is sent. The real values stay on your
+        computer and are put back into the rewrite there. Detection is automatic and can miss
+        unusual formats, so avoid humanizing text that is sensitive as a whole. Turn on
+        <strong>Local-only mode</strong> in Settings to stop Humanize from sending anything.
+      </p>
+
+      <h2>Who processes data for us</h2>
+      <table>
+        <tr>
+          <th>Provider</th>
+          <th>What for</th>
+          <th>Data involved</th>
+        </tr>
+        <tr>
+          <td>Supabase (hosting in Mumbai, India)</td>
+          <td>Accounts, usage counts, running the rewrite request, anonymous metrics</td>
+          <td>Account data, usage counts, redacted text in transit, anonymous counts</td>
+        </tr>
+        <tr>
+          <td>Google (Gemini API)</td>
+          <td>Producing the rewrite</td>
+          <td>
+            Redacted text and tone. We use Google's paid API tier, under which Google does not use
+            your text to train its models. Google may retain it for a limited time to detect
+            abuse, under its own terms.
+          </td>
+        </tr>
+        <tr>
+          <td>Google (Sign-In)</td>
+          <td>Signing you in</td>
+          <td>Your Google account details you approve</td>
+        </tr>
+        <tr>
+          <td>GitHub</td>
+          <td>Hosting this website, downloads and update checks</td>
+          <td>IP address and standard request logs</td>
+        </tr>
+      </table>
+      <p>
+        These providers may process data outside your country. We don't sell or share your data
+        with anyone else, and we don't use it for advertising.
+      </p>
+
+      <h2>What we don't do</h2>
+      <ul>
+        <li>No third-party analytics, tracking or advertising SDKs, in the app or on this site.</li>
+        <li>No cookies on this website.</li>
+        <li>No reading of your clipboard history, files, or other apps.</li>
+        <li>No training of AI models on your text.</li>
+      </ul>
+
+      <h2>Your choices and rights</h2>
+      <ul>
+        <li>Use the app without an account: checking copied text never needs one.</li>
+        <li>Pause watching at any time from the tray menu.</li>
+        <li>
+          Turn off <strong>Share anonymous usage counts</strong> in Settings. Unsent counts are
+          deleted from your computer.
+        </li>
+        <li>Turn on Local-only mode to stop all sending, usage counts included.</li>
+        <li>Sign out from Settings.</li>
+        <li>
+          Ask us to access, correct or delete your account data by emailing
+          <a href="mailto:support@humannicer.com">support@humannicer.com</a> from the address you signed in
+          with. We'll respond within 30 days.
+        </li>
+      </ul>
+      <p>
+        Depending on where you live (for example under India's Digital Personal Data Protection
+        Act or the EU/UK GDPR), you may have further rights, including to complain to your data
+        protection authority.
+      </p>
+
+      <h2>Children</h2>
+      <p>
+        Human-nicer isn't intended for children. You must be at least 18, or the age of digital
+        consent where you live if lower and your parent or guardian agrees, to create an account.
+      </p>
+
+      <h2>Security</h2>
+      <p>
+        Connections to our server use HTTPS. Account data is protected by row-level access rules
+        and only our server can change usage records. Found a problem? Please report it privately
+        via
+        <a href="https://github.com/reconstructdaily/human-nicer/security/advisories/new"
+          >GitHub security advisories</a
+        >.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        If we change this policy we'll update the date above, and for significant changes we'll
+        let you know in the app before they take effect.
+      </p>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>© 2026 Human-nicer</span>
+        <nav aria-label="Footer">
+          <a href="./">Home</a>
+          <a href="terms.html">Terms</a>
+        </nav>
+      </div>
+    </footer>
+    <script src="metrics.js"></script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Sorry to see you go — Human-nicer</title>
+    <link rel="icon" type="image/png" href="icon-256.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .bye {
+        max-width: 560px;
+        padding-block: 32px 72px;
+      }
+      .bye form {
+        display: grid;
+        gap: 10px;
+        margin-top: 22px;
+      }
+      .opt {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        background: var(--card);
+        border: 2px solid var(--ink);
+        padding: 12px 14px;
+        cursor: pointer;
+      }
+      .opt input {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--action);
+      }
+      textarea {
+        font: 16px var(--body);
+        color: var(--ink);
+        background: var(--card);
+        border: 2px solid var(--ink);
+        padding: 10px 12px;
+        min-height: 90px;
+        resize: vertical;
+      }
+      .bye button {
+        justify-self: start;
+        cursor: pointer;
+      }
+      .bye .mascot {
+        position: static;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="wrap top">
+      <a class="brand" href="./"><img src="icon-256.png" alt="" />Human-nicer</a>
+    </header>
+
+    <main class="wrap bye">
+      <div class="mascot"><img src="mascot-shocked.svg" alt="" /></div>
+      <h1>Sorry to see you go.</h1>
+      <p class="lede">
+        One question, so the next version is better. It's anonymous: no account, no email.
+      </p>
+
+      <form id="why">
+        <label class="opt"><input type="radio" name="reason" value="too-many-popups" required /> It popped up too often</label>
+        <label class="opt"><input type="radio" name="reason" value="score-wrong" /> The score felt wrong</label>
+        <label class="opt"><input type="radio" name="reason" value="privacy" /> I wasn't comfortable with clipboard access</label>
+        <label class="opt"><input type="radio" name="reason" value="rewrites" /> The rewrites weren't good enough</label>
+        <label class="opt"><input type="radio" name="reason" value="not-needed" /> I don't need it</label>
+        <label class="opt"><input type="radio" name="reason" value="other" /> Something else</label>
+        <label for="comment" class="fine">Anything else? (optional, please no personal details)</label>
+        <textarea id="comment" name="comment" maxlength="500"></textarea>
+        <button class="btn" type="submit">Send</button>
+      </form>
+      <p id="thanks" class="lede" hidden>Thanks — that genuinely helps. You can close this tab.</p>
+    </main>
+
+    <script src="metrics.js"></script>
+    <script>
+      document.getElementById('why').addEventListener('submit', function (e) {
+        e.preventDefault()
+        var f = e.target
+        var reason = (f.querySelector('input[name=reason]:checked') || {}).value
+        if (!reason) return
+        var m = window.humanNicerMetrics
+        if (m)
+          m.send('uninstall', {
+            reason: reason,
+            comment: f.comment.value.trim() || null,
+            version: new URLSearchParams(location.search).get('v')
+          })
+        f.hidden = true
+        document.getElementById('thanks').hidden = false
+      })
+    </script>
+  </body>
+</html>
