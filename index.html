@@ -6,7 +6,7 @@
     <title>Human-nicer — catch the AI tells before you hit send</title>
     <meta
       name="description"
-      content="A free Windows tray app that checks what you copy for AI tells — leftover placeholders, chatbot sign-offs, buzzword clusters — and rewrites it to sound like you. Your clipboard stays on your PC."
+      content="A free Windows app and Chrome extension that check what you copy for AI tells — leftover placeholders, chatbot sign-offs, buzzword clusters — and rewrites it to sound like you. Your clipboard stays on your device."
     />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Human-nicer — catch the AI tells before you hit send" />
@@ -20,57 +20,85 @@
     <meta name="twitter:card" content="summary" />
     <link rel="icon" type="image/png" href="icon-256.png" />
     <link rel="stylesheet" href="styles.css" />
+    <script>document.documentElement.classList.add('js')</script>
   </head>
   <body>
-    <header class="wrap top">
-      <a class="brand" href="./"><img src="icon-256.png" alt="" />Human-nicer</a>
-      <nav aria-label="Main">
-        <a href="#how">How it works</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#faq">FAQ</a>
-        <span class="soon-tag">Coming soon</span>
-      </nav>
+    <header class="site-head">
+      <div class="wrap top">
+        <a class="brand" href="./"><img src="icon-256.png" alt="" />Human-nicer</a>
+        <nav aria-label="Main">
+          <a href="#how">How it works</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#faq">FAQ</a>
+          <a class="nav-cta" href="#notify">Get notified</a>
+        </nav>
+      </div>
     </header>
 
     <main>
       <div class="wrap hero">
         <div>
-          <p class="eyebrow">FREE · WINDOWS 10 &amp; 11</p>
+          <p class="eyebrow">FREE · WINDOWS + CHROME</p>
           <h1>Catch the <mark>AI tells</mark> before you hit send.</h1>
           <p class="lede">
-            Human-nicer sits in your tray and checks everything you copy. It flags the
+            Human-nicer checks everything you copy, from your Windows tray or right inside Chrome. It flags the
             <code>[Enter Name]</code> you forgot, the "I hope this helps!" you didn't write, and
             rewrites the rest so it sounds like you.
           </p>
-          <div class="ctas">
-            <span class="btn soon">Coming soon</span>
-            <a class="btn ghost" href="#how">See how it works</a>
+          <div id="notify">
+          <p class="soon-line"><span class="soon-tag">Coming soon</span> Get one email the day it launches. No newsletter.</p>
+          <form class="notify" data-waitlist novalidate>
+            <fieldset class="platforms">
+              <legend>Tell me when it's out for</legend>
+              <label><input type="checkbox" name="platform" value="windows" checked /> Windows app</label>
+              <label><input type="checkbox" name="platform" value="chrome" checked /> Chrome extension</label>
+            </fieldset>
+            <div class="notify-row">
+              <label class="sr-only" for="email-hero">Email address</label>
+              <input id="email-hero" type="email" name="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required />
+              <button class="btn" type="submit">Notify me</button>
+            </div>
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <p class="notify-msg" role="status" aria-live="polite"></p>
+          </form>
           </div>
           <p class="fine">Free. Scoring works offline. No account needed until you rewrite.</p>
         </div>
 
-        <figure class="demo" aria-label="What Human-nicer shows when you copy AI-written text">
+        <figure class="demo" aria-label="Human-nicer flagging a copied email draft, then the draft fixed">
+          <div class="draft" aria-hidden="true">
+            <div class="draft-bar"><i></i><i></i><i></i><span>Email draft</span></div>
+            <div class="draft-body">
+              <p>Hi <span class="ph">[Enter Name]</span>,</p>
+              <p>
+                Great speaking today. The proposal is attached, and you can reach me at
+                <span class="pii">asha@mail.com</span>.
+                <span class="ailine" data-new="I'm happy to walk you through it on a call.">Let me know if you need any more details!</span>
+              </p>
+            </div>
+            <span class="keycap">Ctrl + C</span>
+          </div>
           <div class="bubble">
             <div class="score">
-              <b>88</b>
+              <b data-score>88</b>
               <div style="flex: 1">
-                <span>SOUNDS AI-GENERATED</span>
+                <span data-verdict>SOUNDS AI-GENERATED</span>
                 <div class="meter"><i></i></div>
               </div>
             </div>
             <div class="label">WHAT I NOTICED</div>
-            <div class="warn">
-              <strong>Unfilled placeholder</strong>
+            <div class="warn w-ph">
+              <strong data-fixed="Placeholder filled">Unfilled placeholder</strong>
               <span class="chip">[Enter Name]</span>
             </div>
-            <div class="warn">
-              <strong>Leftover AI phrasing</strong>
+            <div class="warn w-ai">
+              <strong data-fixed="Rewritten in your tone">Leftover AI phrasing</strong>
               <span class="chip">Let me know if you need any more details!</span>
             </div>
-            <div class="private">🔒 STAYS ON THIS DEVICE <em>email</em> <em>phone</em></div>
-            <button class="humanize" type="button" tabindex="-1">HUMANIZE · Friendly ✨</button>
+            <div class="private">🔒 STAYS ON THIS DEVICE <em>email</em></div>
+            <button class="humanize" type="button" tabindex="-1">HUMANIZE · Professional ✨</button>
           </div>
-          <div class="mascot"><img src="mascot-shocked.svg" alt="" /></div>
+          <div class="mascot" data-face="shocked"><img src="mascot-shocked.svg" alt="" /></div>
         </figure>
       </div>
 
@@ -214,7 +242,19 @@
           </details>
           <details>
             <summary>Does it work on Mac?</summary>
-            <p>Not yet — Windows 10 and 11 only for now.</p>
+            <p>
+              The desktop app is Windows 10 and 11 only for now. The Chrome extension works in
+              Chrome on Mac, Linux and ChromeOS too.
+            </p>
+          </details>
+          <details>
+            <summary>Windows app or Chrome extension?</summary>
+            <p>
+              The Windows app checks anything you copy on your PC, in any app. The Chrome extension
+              checks what you copy on web pages in Chrome, so it's the one to pick on a Mac or a work
+              laptop where you can't install apps. Both do the same check and the same Humanize, and
+              one free account works on both.
+            </p>
           </details>
           <details>
             <summary>How do I pause or remove it?</summary>
@@ -228,14 +268,25 @@
 
       <section class="final">
         <div class="wrap">
-          <div class="mascot calm" style="position: static; margin: 0 auto 22px">
+          <div class="mascot calm" data-face="happy" style="position: static; margin: 0 auto 22px">
             <img src="mascot-happy.svg" alt="" />
           </div>
           <h2>Send things that sound like you.</h2>
-          <p class="sub" style="margin-inline: auto">Free for Windows. Takes a minute to set up.</p>
-          <div class="ctas">
-            <span class="btn soon">Coming soon</span>
-          </div>
+          <p class="sub" style="margin-inline: auto">Free for Windows and Chrome. Coming soon.</p>
+          <form class="notify" data-waitlist novalidate>
+            <fieldset class="platforms">
+              <legend>Tell me when it's out for</legend>
+              <label><input type="checkbox" name="platform" value="windows" checked /> Windows app</label>
+              <label><input type="checkbox" name="platform" value="chrome" checked /> Chrome extension</label>
+            </fieldset>
+            <div class="notify-row">
+              <label class="sr-only" for="email-final">Email address</label>
+              <input id="email-final" type="email" name="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required />
+              <button class="btn" type="submit">Notify me</button>
+            </div>
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <p class="notify-msg" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </section>
     </main>
@@ -254,5 +305,7 @@
       </div>
     </footer>
     <script src="metrics.js"></script>
+    <script src="waitlist.js"></script>
+    <script src="motion.js"></script>
   </body>
 </html>

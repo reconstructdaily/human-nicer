@@ -16,12 +16,15 @@
 
     <main class="wrap legal">
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: October 24, 2026</p>
+      <p class="updated">Last updated: October 28, 2026</p>
 
       <div class="summary-box">
         <p><strong>The short version</strong></p>
         <ul>
-          <li>Checking what you copy happens on your PC. Copying never sends your text.</li>
+          <li>
+            Checking what you copy happens on your PC, or inside your browser with the Chrome
+            extension. Copying never sends your text.
+          </li>
           <li>
             Text leaves your PC only when you press <strong>Humanize</strong>, with passwords,
             keys and personal details removed first. We don't store it.
@@ -33,13 +36,18 @@
             The app sends anonymous counts (copies checked, alerts shown, rewrites made) so we can
             see what's working. Never any text. You can turn this off.
           </li>
+          <li>
+            If you leave your email on the website to hear about the launch, we email you once
+            per version you picked, then delete it.
+          </li>
           <li>No ads, no third-party trackers, no selling data. The website sets no cookies.</li>
         </ul>
       </div>
 
       <h2>Who we are</h2>
       <p>
-        Human-nicer ("we", "us") makes the Human-nicer desktop app and this website. You can
+        Human-nicer ("we", "us") makes the Human-nicer desktop app, the Human-nicer Chrome
+        extension and this website. You can
         reach us at <a href="mailto:support@humannicer.com">support@humannicer.com</a> for anything in this
         policy, including requests to access or delete your data.
       </p>
@@ -55,6 +63,34 @@
         <strong>Your settings</strong> (alert threshold, tone, character, startup and Local-only
         options) are saved in a file on your computer. If you sign in, your sign-in session is
         saved on your computer, encrypted with Windows' built-in data protection.
+      </p>
+
+      <h2>The Chrome extension</h2>
+      <p>
+        The extension works like the desktop app, inside Chrome. It checks text when you copy it
+        on a web page (with Ctrl+C, the right-click menu or a page's own copy button) or when you
+        choose <strong>Check with Human-nicer</strong> from the right-click menu. It doesn't
+        read your clipboard at other times, your browsing history, or what you type.
+      </p>
+      <p>
+        That check runs inside your browser. The last text you copied in each tab is held in the
+        browser's memory only, for Humanize, and is cleared when you close the tab or quit
+        Chrome. Your settings and sign-in session are saved in Chrome's storage for the
+        extension, which web pages can't read. Pages can't see the mascot's bubble or its
+        rewrites either: it runs in the extension's own frame.
+      </p>
+      <p>
+        The extension needs access to the sites you visit so it can notice copies on them. It
+        uses that access only for this, and sends nothing from those pages anywhere unless you
+        press Humanize. Everything else in this policy (Humanize, redaction, usage counts,
+        sign-in) applies to the extension the same way it does to the app. Anonymous usage
+        counts from the extension carry a version starting with <code>chrome-</code>.
+      </p>
+      <p>
+        Human-nicer's use of information received through Chrome extension APIs follows the
+        <a href="https://developer.chrome.com/docs/webstore/program-policies/policies"
+          >Chrome Web Store User Data Policy</a
+        >, including the Limited Use requirements.
       </p>
 
       <h2>What we receive, and why</h2>
@@ -74,6 +110,18 @@
           <td>Until you delete your account</td>
         </tr>
         <tr>
+          <td>
+            Which of your sign-ins is the current one for the app and for the Chrome
+            extension (a session ID and the time)
+          </td>
+          <td>When you sign in, and each time you press Humanize</td>
+          <td>
+            So one account is used on one computer and one browser at a time: a newer
+            sign-in signs the older one out
+          </td>
+          <td>Until you sign in again or delete your account</td>
+        </tr>
+        <tr>
           <td>Number of rewrites used per day, and whether you have Pro</td>
           <td>Each time you press Humanize</td>
           <td>To apply the daily allowance</td>
@@ -84,6 +132,14 @@
           <td>Only if you press "Notify me when Pro launches"</td>
           <td>To email you once when Pro opens</td>
           <td>Until Pro launches, or until you ask us to remove it</td>
+        </tr>
+        <tr>
+          <td>
+            Your email address and whether you want the Windows app, the Chrome extension or both
+          </td>
+          <td>Only if you fill in "Notify me" on this website</td>
+          <td>To email you once when each version you picked launches</td>
+          <td>Until both have launched and we've emailed you, or until you ask us to remove it</td>
         </tr>
         <tr>
           <td>The text you chose to rewrite, after redaction, and the tone you picked</td>
@@ -117,6 +173,15 @@
           <td>Up to 24 months</td>
         </tr>
         <tr>
+          <td>
+            A scrambled (salted hash) form of your IP address and the times you pressed
+            Humanize. The IP address itself isn't stored.
+          </td>
+          <td>Each time you press Humanize</td>
+          <td>To stop scripts and shared accounts from overusing Humanize</td>
+          <td>24 hours</td>
+        </tr>
+        <tr>
           <td>IP address and request times in server logs</td>
           <td>When the app talks to our server or checks for updates</td>
           <td>To run, secure and debug the service</td>
@@ -127,8 +192,8 @@
       <h2>Redaction before Humanize</h2>
       <p>
         Before any text is sent, the app looks for passwords and passphrases, API keys and
-        tokens, private keys, email addresses, phone numbers, payment card numbers, government ID
-        numbers and similar details, and replaces them with placeholders such as
+        tokens, private keys, email addresses, phone numbers, UPI IDs, payment card numbers,
+        government ID numbers and similar details, and replaces them with placeholders such as
         <code>[EMAIL_1]</code>. Only the redacted text is sent. The real values stay on your
         computer and are put back into the rewrite there. Detection is automatic and can miss
         unusual formats, so avoid humanizing text that is sensitive as a whole. Turn on
@@ -144,8 +209,14 @@
         </tr>
         <tr>
           <td>Supabase (hosting in Mumbai, India)</td>
-          <td>Accounts, usage counts, running the rewrite request, anonymous metrics</td>
-          <td>Account data, usage counts, redacted text in transit, anonymous counts</td>
+          <td>
+            Accounts, usage counts, running the rewrite request, anonymous metrics, the launch
+            email list
+          </td>
+          <td>
+            Account data, usage counts, redacted text in transit, anonymous counts, launch list
+            email addresses
+          </td>
         </tr>
         <tr>
           <td>Google (Gemini API)</td>
@@ -166,6 +237,11 @@
           <td>Hosting this website, downloads and update checks</td>
           <td>IP address and standard request logs</td>
         </tr>
+        <tr>
+          <td>GoDaddy (email)</td>
+          <td>Our support mailbox, and sending the launch email</td>
+          <td>Your email address and the messages we exchange</td>
+        </tr>
       </table>
       <p>
         These providers may process data outside your country. We don't sell or share your data
@@ -176,20 +252,28 @@
       <ul>
         <li>No third-party analytics, tracking or advertising SDKs, in the app or on this site.</li>
         <li>No cookies on this website.</li>
-        <li>No reading of your clipboard history, files, or other apps.</li>
+        <li>No reading of your clipboard history, files, browsing history or other apps.</li>
         <li>No training of AI models on your text.</li>
       </ul>
 
       <h2>Your choices and rights</h2>
       <ul>
         <li>Use the app without an account: checking copied text never needs one.</li>
-        <li>Pause watching at any time from the tray menu.</li>
+        <li>
+          Pause watching at any time from the tray menu, or from Settings in the extension. In
+          Chrome, <strong>Turn off</strong> hides the mascot in every tab until you click its
+          toolbar icon.
+        </li>
         <li>
           Turn off <strong>Share anonymous usage counts</strong> in Settings. Unsent counts are
           deleted from your computer.
         </li>
         <li>Turn on Local-only mode to stop all sending, usage counts included.</li>
         <li>Sign out from Settings.</li>
+        <li>
+          Leave the launch list at any time by replying to our email or writing to
+          <a href="mailto:support@humannicer.com">support@humannicer.com</a>.
+        </li>
         <li>
           Ask us to access, correct or delete your account data by emailing
           <a href="mailto:support@humannicer.com">support@humannicer.com</a> from the address you signed in
