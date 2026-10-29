@@ -16,7 +16,7 @@
 
     <main class="wrap legal">
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: October 28, 2026</p>
+      <p class="updated">Last updated: October 29, 2026</p>
 
       <div class="summary-box">
         <p><strong>The short version</strong></p>
@@ -26,8 +26,8 @@
             extension. Copying never sends your text.
           </li>
           <li>
-            Text leaves your PC only when you press <strong>Humanize</strong>, with passwords,
-            keys and personal details removed first. We don't store it.
+            Text leaves your PC only when you press <strong>Humanize</strong>, with email
+            addresses, phone numbers, keys and similar formats replaced first. We don't store it.
           </li>
           <li>
             If you sign in, we keep your email address and how many rewrites you used each day.
@@ -191,12 +191,14 @@
 
       <h2>Redaction before Humanize</h2>
       <p>
-        Before any text is sent, the app looks for passwords and passphrases, API keys and
-        tokens, private keys, email addresses, phone numbers, UPI IDs, payment card numbers,
-        government ID numbers and similar details, and replaces them with placeholders such as
-        <code>[EMAIL_1]</code>. Only the redacted text is sent. The real values stay on your
-        computer and are put back into the rewrite there. Detection is automatic and can miss
-        unusual formats, so avoid humanizing text that is sensitive as a whole. Turn on
+        Before any text is sent, the app looks for values with a recognisable format: API keys
+        and tokens, private keys, email addresses, phone numbers, UPI IDs, payment card numbers,
+        government ID numbers, postcodes, and passwords that follow a label such as
+        "password:". It replaces them with placeholders such as <code>[EMAIL_1]</code>. Only the
+        redacted text is sent. The real values stay on your computer and are put back into the
+        rewrite there. Detection works on patterns, so it can't recognise names, a password
+        written on its own, or anything else that looks like ordinary words, and it can miss
+        unusual formats. Avoid humanizing text that is sensitive as a whole. Turn on
         <strong>Local-only mode</strong> in Settings to stop Humanize from sending anything.
       </p>
 

@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Human-nicer — catch the AI tells before you hit send</title>
+    <title>Human-nicer</title>
     <meta
       name="description"
-      content="A free Windows app and Chrome extension that check what you copy for AI tells — leftover placeholders, chatbot sign-offs, buzzword clusters — and rewrites it to sound like you. Your clipboard stays on your device."
+      content="A free Windows app and Chrome extension that check what you copy for AI mistakes, like leftover placeholders, chatbot sign-offs and buzzword clusters, and rewrite it to sound like you. Your clipboard stays on your device."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Human-nicer — catch the AI tells before you hit send" />
+    <meta property="og:title" content="Human-nicer" />
     <meta
       property="og:description"
       content="Copy any text and see instantly if it sounds AI-written. Humanize it in your tone. Private by design."
@@ -38,10 +38,10 @@
     <main>
       <div class="wrap hero">
         <div>
-          <p class="eyebrow">FREE · WINDOWS + CHROME</p>
-          <h1>Catch the <mark>AI tells</mark> before you hit send.</h1>
+          <p class="eyebrow"><span class="free">FREE</span> WINDOWS APP OR CHROME EXTENSION</p>
+          <h1>Catch <mark>AI mistakes</mark> before you hit send.</h1>
           <p class="lede">
-            Human-nicer checks everything you copy, from your Windows tray or right inside Chrome. It flags the
+            Human-nicer checks everything you copy. It flags the
             <code>[Enter Name]</code> you forgot, the "I hope this helps!" you didn't write, and
             rewrites the rest so it sounds like you.
           </p>
@@ -67,14 +67,16 @@
 
         <figure class="demo" aria-label="Human-nicer flagging a copied email draft, then the draft fixed">
           <div class="draft" aria-hidden="true">
-            <div class="draft-bar"><i></i><i></i><i></i><span>Email draft</span></div>
+            <div class="draft-bar">
+              <i></i><i></i><i></i><span>Email draft</span><em class="tone-tag">✨ Professional</em>
+            </div>
             <div class="draft-body">
               <p>Hi <span class="ph">[Enter Name]</span>,</p>
               <p>
-                Great speaking today. The proposal is attached, and you can reach me at
+                <span class="tone" data-new="Thank you for your time today. I've attached the proposal for your review, and you can reach me at">Great speaking today. The proposal is attached, and you can reach me at</span>
                 <span class="pii">asha@mail.com</span>.
-                <span class="ailine" data-new="I'm happy to walk you through it on a call.">Let me know if you need any more details!</span>
               </p>
+              <p class="ailine">Let me know if you'd like it in a more professional tone!</p>
             </div>
             <span class="keycap">Ctrl + C</span>
           </div>
@@ -92,8 +94,8 @@
               <span class="chip">[Enter Name]</span>
             </div>
             <div class="warn w-ai">
-              <strong data-fixed="Rewritten in your tone">Leftover AI phrasing</strong>
-              <span class="chip">Let me know if you need any more details!</span>
+              <strong data-fixed="Chatbot line removed">Chatbot leftover</strong>
+              <span class="chip">Let me know if you'd like it in a more professional tone!</span>
             </div>
             <div class="private">🔒 STAYS ON THIS DEVICE <em>email</em></div>
             <button class="humanize" type="button" tabindex="-1">HUMANIZE · Professional ✨</button>
@@ -141,10 +143,11 @@
           <div class="grid3">
             <div class="card">
               <span class="step">1</span>
-              <h3>Copy anything</h3>
+              <h3>Install it, then copy anything</h3>
               <p>
-                An email draft, a LinkedIn post, a Slack reply. Code, spreadsheets and logs are
-                recognised and left alone.
+                Get the Windows app or the Chrome extension, then copy as usual: an email draft, a
+                LinkedIn post, a Slack reply. Code, spreadsheets and logs are recognised and left
+                alone.
               </p>
             </div>
             <div class="card">
@@ -185,11 +188,13 @@
           <div class="promise">
             <span class="n">02</span>
             <div>
-              <h3>Secrets are removed before Humanize</h3>
+              <h3>Emails, numbers and keys are held back</h3>
               <p>
-                Passwords, API keys, emails, phone numbers, card and ID numbers are swapped out on
-                your PC before text is sent, then put back into the rewrite locally. The bubble
-                shows you what was held back.
+                Before Humanize sends anything, things with a recognisable format, like email
+                addresses, phone numbers, API keys and card numbers, are swapped for placeholders
+                such as <code>[EMAIL_1]</code> on your PC and put back into the rewrite there. The
+                bubble shows you exactly what will be sent. It can't tell that a plain word is a
+                password or a name, so don't humanize text you wouldn't share.
               </p>
             </div>
           </div>
@@ -228,9 +233,11 @@
           <details>
             <summary>What gets sent when I press Humanize?</summary>
             <p>
-              The copied text, with secrets and personal details removed, and the tone you picked.
-              It goes to our server and to Google's Gemini model to be rewritten, and isn't stored
-              by us. Details are in the <a href="privacy.html">privacy policy</a>.
+              The copied text and the tone you picked. Email addresses, phone numbers, API keys,
+              card numbers and similar formats are replaced with placeholders first; names and
+              ordinary words are sent as written. It goes to our server and to Google's Gemini model
+              to be rewritten, and isn't stored by us. Details are in the
+              <a href="privacy.html">privacy policy</a>.
             </p>
           </details>
           <details>
@@ -272,7 +279,7 @@
             <img src="mascot-happy.svg" alt="" />
           </div>
           <h2>Send things that sound like you.</h2>
-          <p class="sub" style="margin-inline: auto">Free for Windows and Chrome. Coming soon.</p>
+          <p class="sub" style="margin-inline: auto">Free as a Windows app or a Chrome extension. Coming soon.</p>
           <form class="notify" data-waitlist novalidate>
             <fieldset class="platforms">
               <legend>Tell me when it's out for</legend>

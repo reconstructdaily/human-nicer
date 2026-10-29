@@ -141,6 +141,7 @@
   function $(sel) { return fig.querySelector(sel) }
   var ph = $('.ph')
   var ai = $('.ailine')
+  var tone = $('.tone')
   var pii = $('.pii')
   var scoreEl = $('[data-score]')
   var verdict = $('[data-verdict]')
@@ -152,7 +153,7 @@
   var mascot = $('.mascot')
   var orig = {
     ph: ph.textContent,
-    ai: ai.textContent,
+    tone: tone.textContent,
     wPh: wPh.querySelector('strong').textContent,
     wAi: wAi.querySelector('strong').textContent,
     verdict: verdict.textContent,
@@ -212,7 +213,8 @@
     ph.className = 'ph'
     ph.textContent = orig.ph
     ai.className = 'ailine'
-    ai.textContent = orig.ai
+    tone.className = 'tone'
+    tone.textContent = orig.tone
     pii.className = 'pii'
     wPh.className = 'warn w-ph'
     wPh.querySelector('strong').textContent = orig.wPh
@@ -255,7 +257,8 @@
       await count(46, 700)
       await sleep(700)
 
-      // 4. Humanize rewrites the chatbot line; the email never leaves the device
+      // 4. Humanize: the pasted chatbot line goes, then the email is rewritten in the
+      //    Professional tone; the email address never leaves the device
       btn.classList.add('pressed')
       await sleep(160)
       btn.classList.remove('pressed')
@@ -264,13 +267,24 @@
       pii.classList.add('held')
       priv.classList.add('held')
       ai.classList.add('striking')
+      await sleep(800)
+      ai.classList.add('gone')
+      fix(wAi)
+      await sleep(600)
+      fig.classList.add('is-toned')
+      // The rewrite arrives whole, so it replaces the selection like a paste.
+      // Soft: a pale highlight, a slow fade out and in, then the highlight melts away.
+      tone.classList.add('selecting')
+      await sleep(800)
+      tone.classList.add('swapping')
+      await sleep(500)
+      tone.textContent = tone.dataset.new
+      tone.classList.remove('swapping')
       await sleep(700)
-      ai.classList.remove('striking')
-      await type(ai, ai.dataset.new, 38)
-      ai.classList.add('done')
+      tone.classList.remove('selecting')
+      await sleep(500)
       btn.classList.remove('working')
       btn.textContent = 'REWRITTEN ✓'
-      fix(wAi)
 
       // 5. sounds human: the mascot cheers up
       await count(12, 900)
@@ -278,7 +292,7 @@
       verdict.textContent = 'SOUNDS HUMAN'
       face(mascot, 'happy')
       hop(mascot)
-      await sleep(3600)
+      await sleep(4500) // long enough to read the finished email
 
       fig.classList.add('is-fading')
       await sleep(450)
