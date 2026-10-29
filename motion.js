@@ -151,6 +151,10 @@
   var priv = $('.private')
   var btn = $('.humanize')
   var mascot = $('.mascot')
+  // If the page and this script ever come from different deploys (a stale cache),
+  // leave the demo on its static frame instead of freezing half way through.
+  if (![ph, ai, tone, pii, scoreEl, verdict, meter, wPh, wAi, priv, btn, mascot].every(Boolean) ||
+      !tone.dataset.new) return
   var orig = {
     ph: ph.textContent,
     tone: tone.textContent,
@@ -187,19 +191,32 @@
     })
   }
   var score = 88
+  function setScore(v) {
+    score = v
+    scoreEl.textContent = v
+    meter.style.width = v + '%'
+  }
   function count(to, ms) {
     var from = score
     var t0 = performance.now()
+    var done = false
     return new Promise(function (resolve) {
+      function finish() {
+        if (done) return
+        done = true
+        setScore(to)
+        resolve()
+      }
       ;(function frame(now) {
+        if (done) return
         var t = Math.min(1, (now - t0) / ms)
-        var e = 1 - Math.pow(1 - t, 3)
-        score = Math.round(from + (to - from) * e)
-        scoreEl.textContent = score
-        meter.style.width = score + '%'
-        if (t < 1) requestAnimationFrame(frame)
-        else resolve()
+        if (t >= 1) return finish()
+        setScore(Math.round(from + (to - from) * (1 - Math.pow(1 - t, 3))))
+        requestAnimationFrame(frame)
       })(t0)
+      // Browsers stop animation frames while the page isn't painted (background tab,
+      // covered or minimised window), so never let the loop wait on them.
+      setTimeout(finish, ms + 50)
     })
   }
   function fix(warn) {
@@ -298,5 +315,9 @@
       await sleep(450)
     }
   }
-  loop()
+  loop().catch(function (e) {
+    // Never leave the demo half hidden or fading: keep the bubble on screen and stop.
+    console.error('Human-nicer demo stopped:', e)
+    fig.className = 'demo is-copied'
+  })
 })()
